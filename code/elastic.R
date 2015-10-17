@@ -1,7 +1,7 @@
 #install.packages("elastic")
 #install.packages("readr")
 
-setwd("~/R/elasticsearch")
+#setwd("~/R/elasticsearch")
 
 library(elastic)
 library(jsonlite)
@@ -9,7 +9,7 @@ library(jsonlite)
 
 connect()
 #shakespeare <- system.file("examples", "shakespeare_data.json", package = "elastic")
-docs_bulk("shakespeare_full.json")
+#docs_bulk("shakespeare_full.json")
 
 
 
@@ -21,7 +21,7 @@ json <- docs_get(index="shakespeare", type="line", id=1538, raw=T)
 fromJSON(json)
 
 
-
+#not working
 json <- Search(index="shakespeare", type="line", q="text_entry:\"keep close\"")
 fromJSON(json)
 
