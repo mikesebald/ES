@@ -5,7 +5,7 @@
 
 library(elastic)
 library(jsonlite)
-
+library(lubridate)
 
 connect()
 #shakespeare <- system.file("examples", "shakespeare_data.json", package = "elastic")
@@ -30,5 +30,10 @@ fromJSON(json)
 # http://localhost:9200/_cat/indices?v
 
 cat_indices(verbose = TRUE)
+
+
+vehicles <- read.csv("data//motor_vehicle_theft.csv", header = TRUE, stringsAsFactors = FALSE)
+
+x <- strptime(vehicles[1,1], "%m/%d/%Y %I:%M:%S %p", tz = "US/Michigan")
 
 
